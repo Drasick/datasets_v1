@@ -1,0 +1,1301 @@
+[
+    {
+        "dataset_name": "ASearcher",
+        "dataset_version": "1.0",
+        "description": "ASearcher 是一个由北大和清华联合开发的开源框架，用于训练基于大语言模型的搜索智能体，具备长时程、专家级搜索能力。",
+        "paper_url": "https://arxiv.org/abs/2508.07976",
+        "dataset_url": "https://huggingface.co/datasets/inclusionAI/ASearcher-train-data",
+        "github_url": "https://github.com/inclusionAI/ASearcher",
+        "languages": [
+            "en"
+        ],
+        "task_type": "multi-hop",
+        "tool_preference": [
+            "browser",
+            "web_search"
+        ],
+        "num_total_samples": 70637,
+        "dataset_splits": [
+            {
+                "split_name": "base",
+                "display_name": "ASearcher-Base-35k",
+                "num_samples": 35583,
+                "file_path": "datasets_v1/ASearcher/ASearcher-Base-35k.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "从 HotpotQA 和 2WikiMultiHopQA 数据集中过滤出16K样本，过滤条件包括：\n* Pass16无法得到答案的 \n* 准确率大于50%的 \n* 搜索轮次小于等于1的\n\n同时从 WebWalkerQA 中选取了一部分",
+                "originality": [
+                    "filtered_from_existing"
+                ],
+                "column_mapping": {
+                    "id": "qid",
+                    "question": "question",
+                    "answer": "answer",
+                    "reasoning_process": null,
+                    "multimodal_file_path": null,
+                    "reference": "source"
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            },
+            {
+                "split_name": "lrm",
+                "display_name": "ASearcher-LRM-35k",
+                "num_samples": 35054,
+                "file_path": "datasets_v1/ASearcher/ASearcher-LRM-35k.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "ASearcher 基于 Injection 和 Fuzzing 合成并检验的数据：\n- Injection：将中间的各种名词替换成表述性的；Fuzzing 将一些精确时间等，换成模糊不清的\n- 质量评估（检查问题是否清晰和根据支撑事实验证问答对是否准确）；难度评估（就是生成多个答案）；答案是否唯一\n- QA 信息原始来源：Wikipedia \n- 数据合成代码：https://github.com/inclusionAI/ASearcher/blob/main/qa_synthesis/qa_synthesis_agent.py",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "id",
+                    "question": "question",
+                    "answer": "answer",
+                    "reasoning_process": null,
+                    "multimodal_file_path": null,
+                    "reference": null
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-08-30",
+        "organization": "inclusionAI"
+    },
+    {
+        "dataset_name": "SuperGAIA",
+        "dataset_version": "1.0",
+        "description": "...",
+        "paper_url": "",
+        "dataset_url": "",
+        "github_url": "",
+        "languages": [
+            "zh",
+            "en"
+        ],
+        "task_type": "challenge",
+        "tool_preference": [
+            "browser",
+            "python",
+            "web_search",
+            "video",
+            "audio",
+            "image",
+            "file_parse"
+        ],
+        "num_total_samples": 75,
+        "dataset_splits": [
+            {
+                "split_name": "test",
+                "display_name": "supergaia",
+                "num_samples": 75,
+                "file_path": "datasets_v1/SuperGAIA/supergaia.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": true,
+                "description": ".....",
+                "originality": [
+                    "original",
+                    "modified_from_existing"
+                ],
+                "column_mapping": {
+                    "id": "id",
+                    "question": "question",
+                    "answer": "answer",
+                    "reasoning_process": null,
+                    "multimodal_file_path": "file_path",
+                    "reference": null
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-09-05",
+        "organization": "Ourselves"
+    },
+    {
+        "dataset_name": "WideSearch",
+        "dataset_version": "1.0",
+        "description": "WideSearch 是由字节跳动 Seed 团队于2025年发布的首个专为“广域信息搜集”设计的智能体评测基准数据集。该数据集包含200个手动策划的问题（100个英文、100个中文），涵盖超过15个不同领域，基于真实用户查询。其目的是评估代理在大规模信息收集任务中的可靠性，要求代理收集大量原子信息并逐一验证，最终整理成结构化输出。数据集通过严格的五阶段质量控制流程，确保难度、完整性和可验证性。",
+        "paper_url": "http://arxiv.org/abs/2508.07999",
+        "dataset_url": "https://huggingface.co/datasets/ByteDance-Seed/WideSearch",
+        "github_url": "https://github.com/ByteDance-Seed/WideSearch",
+        "languages": [
+            "en",
+            "zh"
+        ],
+        "task_type": "challenge",
+        "tool_preference": [
+            "browser",
+            "web_search"
+        ],
+        "num_total_samples": 200,
+        "dataset_splits": [
+            {
+                "split_name": "full",
+                "display_name": "widesearch",
+                "num_samples": 200,
+                "file_path": "datasets_v1/WideSearch/widesearch.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "所有的200条数据，答案需要通过 evaluation 列进行代码核查，无法直接 model judge。",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "instance_id",
+                    "question": "query",
+                    "answer": "",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-08-11",
+        "organization": "ByteDance-Seed"
+    },
+    {
+        "dataset_name": "2WikiMultiHopQA",
+        "dataset_version": "2.0",
+        "description": "2WikiMultiHopQA 是一个大规模的多跳问答数据集，包含 193K 个自然问题，基于 Wikidata得到文档和对应的多个 QA，根据文档问答，答案可能为 NA（No Answer）。",
+        "paper_url": "https://arxiv.org/abs/1806.03822",
+        "dataset_url": "https://rajpurkar.github.io/SQuAD-explorer/",
+        "github_url": "https://rajpurkar.github.io/SQuAD-explorer/",
+        "languages": [
+            "en"
+        ],
+        "task_type": "multi-hop",
+        "tool_preference": [
+            "web_search"
+        ],
+        "num_total_samples": 142192,
+        "dataset_splits": [
+            {
+                "split_name": "train",
+                "display_name": "train-v2.0",
+                "num_samples": 130319,
+                "file_path": "datasets_v1/2WikiMultiHopQA/train-v2.0.json",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "数据组成结构：\n1. 每一条数据是一篇文章（title）\n2. 文章切成很多个段落（paragraphs）\n3. 然后每个段落会有很多的 QAs 对\n4. 当前样本数统计的是当前的所有 QAs 的数量（文章数量为441）",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "data->paragraphs->for->qas->for->id",
+                    "question": "data->paragraphs->for->qas->for->question",
+                    "answer": "data->paragraphs->for->qas->for->answers->for->text(text 需要去重）",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": "data->paragraphs->for->qas->context"
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            },
+            {
+                "split_name": "dev",
+                "display_name": "dev-v2.0",
+                "num_samples": 11873,
+                "file_path": "datasets_v1/2WikiMultiHopQA/dev-v2.0.json",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "数据组成结构：\n1. 每一条数据是一篇文章（title）\n2. 文章切成很多个段落（paragraphs）\n3. 然后每个段落会有很多的 QAs 对\n4. 当前样本数统计的是当前的所有 QAs 的数量（文章数量为34）",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "data->paragraphs->for->qas->for->id",
+                    "question": "data->paragraphs->for->qas->for->question",
+                    "answer": "data->paragraphs->for->qas->for->answers->for->text(text 需要去重）",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2018-06-11",
+        "organization": "SQuAD"
+    },
+    {
+        "dataset_name": "Bamboogle",
+        "dataset_version": "1.0",
+        "description": "Bamboogle 是一个手动构建的二跳问题数据集，包含125个问题。这些问题通过阅读维基百科的随机文章并编写需要两步推理的问题生成，旨在测试模型分解复杂问题的能力。例如，“花旗银行成立那年美国总统是谁？”需先查询花旗银行成立时间（1862年），再检索该年份的美国总统（亚伯拉罕·林肯）。\n\n该数据集的特点是所有问题难度较高，即使是主流搜索引擎也无法直接得到答案。这些问题被设计为即使在预训练数据集中存在相关信息，也需要模型进行复杂的推理才能得出正确答案。Bamboogle 数据集常被用于多跳问答基准测试，以验证模型动态调用搜索工具的效率。",
+        "paper_url": "https://arxiv.org/abs/2210.03350",
+        "dataset_url": "https://huggingface.co/datasets/chiayewken/bamboogle",
+        "github_url": "",
+        "languages": [
+            "en"
+        ],
+        "task_type": "multi-hop",
+        "tool_preference": [
+            "web_search"
+        ],
+        "num_total_samples": 125,
+        "dataset_splits": [
+            {
+                "split_name": "test",
+                "display_name": "test-00000-of-00001-fd9def31e0acf72c",
+                "num_samples": 125,
+                "file_path": "datasets_v1/Bamboogle/data/test-00000-of-00001-fd9def31e0acf72c.parquet",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "问题和对应的答案",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "",
+                    "question": "Question",
+                    "answer": "Answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2023-10-27",
+        "organization": "Meta AI Research"
+    },
+    {
+        "dataset_name": "BrowseComp",
+        "dataset_version": "1.0",
+        "description": "BrowseComp 是一个由 OpenAI 开源的用于评估智能体网络浏览能力的基准测试数据集。它包含 1266 个极具挑战性的问题，涵盖电影、科学与技术、艺术、历史、体育、音乐、电子游戏等多个领域。这些问题设计复杂，需要智能体在互联网中搜索并匹配复杂约束条件，例如特定的足球比赛、电视剧角色或研究论文等。该数据集的难度体现在现有模型如 GPT-4o 和 GPT-4.5 的低准确率（分别为 0.6% 和 0.9%）。\n\nBrowseComp 的数据集由人类专业数据师收集，遵循 SimpleQA 指导原则。问题设计遵循三个检查点：验证现有模型无法解决、谷歌搜索前一页无答案、另一个数据师在十分钟内无法解决。这种设计确保了问题的高难度和挑战性。\n\n此外，BrowseComp-ZH 是 BrowseComp 的中文版本，由香港科技大学（广州）、北京大学、Mindverse AI 等机构的研究团队于 2025 年推出。它是首个专门评估大语言模型在中文信息生态系统中真实网页浏览和推理能力的高难度基准测试。该数据集包含 289 个复杂的多跳检索和推理问题，涵盖 11 个领域，包括电影与电视、技术、医学和历史。",
+        "paper_url": "https://arxiv.org/abs/2504.12516",
+        "dataset_url": "https://openaipublic.blob.core.windows.net/simple-evals/browse_comp_test_set.csv",
+        "github_url": "https://github.com/openai/simple-evals",
+        "languages": [
+            "en"
+        ],
+        "task_type": "challenge",
+        "tool_preference": [
+            "browser",
+            "web_search"
+        ],
+        "num_total_samples": 1266,
+        "dataset_splits": [
+            {
+                "split_name": "test",
+                "display_name": "browse_comp_test_set",
+                "num_samples": 1266,
+                "file_path": "datasets_v1/BrowseComp/browse_comp_test_set.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "browse_comp_test_set.csv 文件本身是经过 XOR 加密 + base64 的，需要先用 canary 列作为密钥解密，才能得到可读的 problem 和 answer，当前已经完成对于数据的转化工作。",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "",
+                    "question": "problem_decoded",
+                    "answer": "answer_decoded",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-04-11",
+        "organization": "OpenAI"
+    },
+    {
+        "dataset_name": "BrowseComp-ZH",
+        "dataset_version": "1.0",
+        "description": "BrowseComp-ZH 是一个为全面评估大型语言模型（LLM）在中国网络上的浏览能力而设计的基准数据集。该数据集由289个多跳问题组成，涵盖了11个不同的领域，每个问题都经过逆向工程，从一个简短、客观且易于验证的答案（如日期、数字或专有名词）出发。为了确保问题的难度和答案的唯一性，采用了两阶段的质量控制协议。数据集旨在评估LLM在多跳检索、事实推理和在线信息整合方面的能力。数据集、构建指南和基准结果已公开发布。",
+        "paper_url": "https://arxiv.org/pdf/2504.19314",
+        "dataset_url": "https://huggingface.co/datasets/PALIN2018/BrowseComp-ZH",
+        "github_url": " https://github.com/PALIN2018/BrowseComp-ZH",
+        "languages": [
+            "zh"
+        ],
+        "task_type": "challenge",
+        "tool_preference": [
+            "browser",
+            "web_search"
+        ],
+        "num_total_samples": 289,
+        "dataset_splits": [
+            {
+                "split_name": "test",
+                "display_name": "test_decode",
+                "num_samples": 289,
+                "file_path": "datasets_v1/BrowseComp-ZH/test_decode.parquet",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "也需要进行 decode，使用 datasets_v1/BrowseComp-ZH/browsecomp-zh-decrypt-parquet.py 进行 decode，当前的数据文件路径已经完成 decode",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "",
+                    "question": "Question",
+                    "answer": "Answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-05-09",
+        "organization": "Peking University"
+    },
+    {
+        "dataset_name": "GAIA",
+        "dataset_version": "1.0",
+        "description": "GAIA 是一个由 Meta、HuggingFace 等团队联合提出的用于评估智能体（Agent）能力的基准测试数据集。它包含 466 条数据，其中 166 条包含唯一答案的问题（用于验证集），300 条不包含答案的数据（用于测试集和排行榜排名）。数据集中的问题分为三个难度等级（level 1、level 2 和 level 3），难度越高，涉及的模态越丰富，通常需要的工具和步骤也越多。\n\nGAIA 数据集的特点是：\n- **多模态**：数据集包含文本（约 70%）、视频、音频、图像以及多种文件格式（如 excel、pdf、ppt、png、jpg、csv、pdb、mp3 等）。\n- **多维度能力评估**：考察智能体的推理能力、多模态处理能力、网页浏览与信息检索能力、工具使用能力以及世界知识等。\n- **自动化评测**：由于验证集有明确的答案，适合自动化评测（例如使用 LLM-as-judge）。\n- **语言限制**：所有问题和参考答案均为英文，对中文场景可能有一定局限性。\n\nGAIA 数据集主要用于评估智能体在处理复杂任务时的能力，这些任务通常需要借助外部工具（如搜索引擎、数据库、文件解析器等）来完成。",
+        "paper_url": "https://arxiv.org/abs/2311.12983",
+        "dataset_url": "https://huggingface.co/datasets/gaia-benchmark/GAIA",
+        "github_url": "",
+        "languages": [
+            "en"
+        ],
+        "task_type": "challenge",
+        "tool_preference": [
+            "browser",
+            "python",
+            "web_search",
+            "video",
+            "audio",
+            "image",
+            "file_parse"
+        ],
+        "num_total_samples": 466,
+        "dataset_splits": [
+            {
+                "split_name": "validation",
+                "display_name": "valid_metadata",
+                "num_samples": 165,
+                "file_path": "datasets_v1/GAIA/2023/validation/metadata.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": true,
+                "description": "1. 已经进行数据的预处理，数据相关的多模态参考文件在 datasets_v1/GAIA/2023/validation 的同级文件夹下，\n2. 解题的 steps，以及需要的工具参考在  Annotator Metadata",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "task_id",
+                    "question": "Question",
+                    "answer": "Final answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "file_name",
+                    "reference": "Annotator Metadata"
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 165,
+                        "correct_samples": 112,
+                        "correct_samples_path": "agent_template/sft_datas/GAIA_sft_datas_112.jsonl"
+                    }
+                }
+            },
+            {
+                "split_name": "test",
+                "display_name": "test_metadata",
+                "num_samples": 301,
+                "file_path": "datasets_v1/GAIA/2023/test/metadata.jsonl",
+                "has_reference_answer": false,
+                "has_reasoning_process": false,
+                "is_multimodal": true,
+                "description": "1. 已经进行数据的预处理，数据相关的多模态参考文件在 datasets_v1/GAIA/2023/test 的同级文件夹下\n2. 没有参考答案和参考 steps",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "task_id",
+                    "question": "Question",
+                    "answer": "",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "file_name",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-02-13",
+        "organization": "Meta AI Research"
+    },
+    {
+        "dataset_name": "HLE",
+        "dataset_version": "1.0",
+        "description": "HLE（Humanity's Last Exam）是一个多模态人类问题基准数据集，由 AI 安全中心（Center for AI Safety）与 Scale AI 联合发布。该数据集包含2500个问题，覆盖数学、物理、生物/医学、人文/社会科学、计算机科学/人工智能、工程学、化学等多个学科领域。其中，约14%的问题需要理解文本和图像，即多模态能力。24%的问题是多项选择题，其余为简答题，适合自动评分。\n\nHLE 数据集旨在构建一个覆盖人类知识前沿的终极封闭式评估体系，以提供一个精确有效的语言模型能力衡量标准，明确当前语言模型能力与专业学术间的差距。\n\nHLE 的问题都是 English 的，但是有些题目中的相关内容会涉及中文、日语、拉丁语等。",
+        "paper_url": "https://arxiv.org/abs/2501.14249",
+        "dataset_url": "https://huggingface.co/datasets/cais/hle",
+        "github_url": "https://github.com/centerforaisafety/hle",
+        "languages": [
+            "en",
+            "zh",
+            "ja",
+            "lat"
+        ],
+        "task_type": "challenge",
+        "tool_preference": [
+            "audio",
+            "browser",
+            "file_parse",
+            "image",
+            "python",
+            "video",
+            "web_search"
+        ],
+        "num_total_samples": 2500,
+        "dataset_splits": [
+            {
+                "split_name": "test",
+                "display_name": "test-00000-of-00001",
+                "num_samples": 2500,
+                "file_path": "datasets_v1/HLE/data/test-00000-of-00001.parquet",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": true,
+                "description": "没有给图片路径 image_path ，而是直接在数据中给了图片的 base64 数据流(image)",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "id",
+                    "question": "question",
+                    "answer": "answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "image",
+                    "reference": "rationale"
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 2500,
+                        "correct_samples": 957,
+                        "correct_samples_path": "agent_template/sft_datas/HLE_sft_datas_957.jsonl"
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-05-20",
+        "organization": "Center for AI Safety"
+    },
+    {
+        "dataset_name": "BrowseComp-VL",
+        "dataset_version": "1.0",
+        "description": "BrowseComp-VL 是 WebWatcher 对应构建的一个专为评估多模态智能体在真实网络环境中进行高级推理能力而设计的数据集。它是 BrowseComp 数据集的视觉-语言扩展版本，旨在逼近人类专家的跨模态研究任务难度。该数据集包含来自五个主要领域的17个细分子领域的复杂问题，每个问题都需要跨模态推理和多步信息检索。数据集分为两个难度级别：Level 1 问题需要多跳推理，但仍引用明确的实体；Level 2 问题则通过模糊化实体和属性来增加不确定性，要求代理进行规划、比较和综合信息。\n\nBrowseComp-VL 的设计目标是解决现有视觉问答（VQA）数据集的局限性，这些数据集大多侧重于视觉感知或单步推理，缺乏支持高级智能体能力所需的规划复杂性和推理深度。BrowseComp-VL 中的问题被设计为长且模糊的 BrowseComp 风格，对实体进行混淆，要求智能体执行跨模态推理、彻底的信息检索和高级规划来解决问题。\n\n该数据集的构建过程包括从权威和知识丰富的来源（如 arXiv、GitHub 和 Wikipedia）收集根 URL，并递归遍历可访问的超链接以生成问题-答案对。然后，将生成的文本 QA 对转换为多模态 VQA 项，通过替换关键实体为视觉参考标记，并检索相关图像作为视觉基础。最后，通过三阶段过滤管道确保 VQA 样本的质量，包括选择器、检查器和最终的人工验证。\n\nBrowseComp-VL 数据集的发布，为训练和评估多模态智能体提供了一个高难度的基准，有助于推动该领域的研究和发展。",
+        "paper_url": "https://arxiv.org/pdf/2508.05748",
+        "dataset_url": "https://github.com/Alibaba-NLP/WebAgent/blob/main/WebWatcher/benchmark",
+        "github_url": "https://github.com/Alibaba-NLP/WebAgent",
+        "languages": [
+            "en"
+        ],
+        "task_type": "challenge",
+        "tool_preference": [
+            "image",
+            "web_search",
+            "browser"
+        ],
+        "num_total_samples": 399,
+        "dataset_splits": [
+            {
+                "split_name": "level1",
+                "display_name": "bc_vl_level1",
+                "num_samples": 199,
+                "file_path": "datasets_v1/WebAgent-series/WebWatcher-BrowseComp-VL/bc_vl_level1.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": true,
+                "description": "images 暂时找不到在哪里下载， https://github.com/Alibaba-NLP/WebAgent/tree/main/WebWatcher 没给出具体的 infer/scripts_eval/download_image.py 脚本",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "",
+                    "question": "question",
+                    "answer": "answers->for",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "image_path",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            },
+            {
+                "split_name": "level2",
+                "display_name": "bc_vl_level2",
+                "num_samples": 200,
+                "file_path": "datasets_v1/WebAgent-series/WebWatcher-BrowseComp-VL/bc_vl_level2.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": true,
+                "description": "images 暂时找不到在哪里下载， https://github.com/Alibaba-NLP/WebAgent/tree/main/WebWatcher 没给出具体的 infer/scripts_eval/download_image.py 脚本",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "",
+                    "question": "question",
+                    "answer": "answers->for",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "image_path",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-08-23",
+        "organization": "Alibaba-NLP"
+    },
+    {
+        "dataset_name": "Frames",
+        "dataset_version": "1.0",
+        "description": "FRAMES（Factuality, Retrieval, And reasoning MEasurement Set）是由谷歌和哈佛大学联合创建的综合评估数据集，旨在测试检索增强生成（RAG）系统在事实性、检索准确性和推理方面的能力。该数据集包含824个测试样本，通过人工标注生成，要求问题需要从多个维基百科文章中整合信息。数据集覆盖了多种主题和推理类型，每个问题需要2-15篇维基百科文章来回答，问题涵盖不同的主题，包括历史、体育、科学、动物、健康等。并且包含了多种推理类型，如数值推理、表格推理、多重约束、时间推理和后处理。\n\nFRAMES数据集的主要特点包括：\n- **多跳问题**：包含多跳问题，需要模型从多个文档中检索和整合信息。\n- **多模态推理**：问题设计需要模型进行跨模态推理，如结合文本和表格信息。\n- **综合评估**：提供了一个统一的框架，同时评估RAG系统的事实性、检索和推理能力。\n- **挑战性**：即使是最先进的模型在没有检索机制的情况下也难以达到高准确率，但通过多步检索和推理框架，性能可以显著提高。\n\n该数据集的发布旨在推动检索增强生成系统的发展，帮助研究人员更好地理解和改进这些系统在复杂查询处理中的表现。",
+        "paper_url": "https://arxiv.org/abs/2409.12941",
+        "dataset_url": "https://huggingface.co/datasets/google/frames-benchmark",
+        "github_url": "",
+        "languages": [
+            "en"
+        ],
+        "task_type": "multi-hop",
+        "tool_preference": [
+            "browser",
+            "web_search",
+            "file_parse"
+        ],
+        "num_total_samples": 824,
+        "dataset_splits": [
+            {
+                "split_name": "test",
+                "display_name": "test",
+                "num_samples": 824,
+                "file_path": "datasets_v1/Frames/test.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. wikipedia_link_1, wikipedia_link_2, wikipedia_link_3, .... 表示多个参考的文档\n2. reasoning_types 是问题类型说明\n3. wikipedia_links 给出完整的 link list\n",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "",
+                    "question": "Prompt",
+                    "answer": "Answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": "wikipedia_links"
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2024-09-19",
+        "organization": "Google"
+    },
+    {
+        "dataset_name": "HotpotQA",
+        "dataset_version": "1.0",
+        "description": "\nHotpotQA是一个包含113k个基于Wikipedia的问答对的数据集，具有四个关键特点：(1) 问题需要查找和推理多个支持文档来回答；(2) 问题多样化，不受任何现有知识库或知识模式的限制；(3) 提供了句子级别的支持事实，允许问答系统在强监督下进行推理并解释预测；(4) 提供了一种新类型的事实比较问题，以测试问答系统提取相关事实并进行必要比较的能力。",
+        "paper_url": "https://arxiv.org/abs/1809.09600",
+        "dataset_url": "https://huggingface.co/datasets/hotpotqa/hotpot_qa",
+        "github_url": "https://hotpotqa.github.io/",
+        "languages": [
+            "en"
+        ],
+        "task_type": "multi-hop",
+        "tool_preference": [
+            "web_search"
+        ],
+        "num_total_samples": 97852,
+        "dataset_splits": [
+            {
+                "split_name": "distractor",
+                "display_name": "distractor_train_val",
+                "num_samples": 97852,
+                "file_path": "[\"datasets_v1/HotpotQA/distractor/train-00000-of-00002.parquet\", \"datasets_v1/HotpotQA/distractor/train-00001-of-00002.parquet\", \"datasets_v1/HotpotQA/distractor/validation-00000-of-00001.parquet\"]",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. 由三个文件组成！！！！ train 分成两个文件(train 0-2：45224 条和 train 1-2：45223条)，还有一个validation(7405 条)\n2. distractor 为干扰项设置（Distractor Setting）：每个问题关联10篇文档（2篇相关文档+8篇干扰文档）\n3. 题目内部根据 level 进行难度划分，type 说明这个题目是需要跨文档结合信息回答，还是比较文档之间的内容差别进行回答",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "id",
+                    "question": "question",
+                    "answer": "answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": "supporting_facts"
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            },
+            {
+                "split_name": "fullwiki",
+                "display_name": "fullwiki_train_valid",
+                "num_samples": 97852,
+                "file_path": "[\"datasets_v1/HotpotQA/fullwiki/train-00000-of-00002.parquet\", \"datasets_v1/HotpotQA/fullwiki/train-00001-of-00002.parquet\", \"datasets_v1/HotpotQA/fullwiki/validation-00000-of-00001.parquet\"]",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. 由三个文件组成！！！！ train 分成两个文件(train 0-2：45224 条和 train 1-2：45223条)，还有一个validation(7405 条)\n2. distractor 为全百科设置（Full-Encyclopedia Setting）：即对应的 context 不是 2+8 的段落形式，而是和 wiki 一样返回完整的整个文档的内容\n3. 题目内部根据 level 进行难度划分，type 说明这个题目是需要跨文档结合信息回答，还是比较文档之间的内容差别进行回答\n4. QA 和 distractor 完全相同，就是上下文不同而已",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "id",
+                    "question": "question",
+                    "answer": "answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": "supporting_facts"
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2018-09-25",
+        "organization": "Carnegie Mellon University"
+    },
+    {
+        "dataset_name": "MobileAgent",
+        "dataset_version": "3.0",
+        "description": "MobileAgent-v3 是阿里巴巴 X-PLUG 团队开源的跨平台多代理框架，基于 GUI-Owl 构建，具备强大的规划、进度管理、反思和记忆能力。它在 GUI 自动化任务中表现出色，尤其在任务规划、异常处理和跨应用任务执行方面进行了优化。\n\n数据方面提供了 metadata 模板，没有直接可用的数据源。",
+        "paper_url": "https://arxiv.org/pdf/2508.15144",
+        "dataset_url": "https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/android_world_v3/android_world/task_metadata.json",
+        "github_url": "https://github.com/X-PLUG/MobileAgent",
+        "languages": [
+            "en"
+        ],
+        "task_type": "multi-hop",
+        "tool_preference": [
+            "GUI Operation"
+        ],
+        "num_total_samples": 115,
+        "dataset_splits": [
+            {
+                "split_name": "template",
+                "display_name": "task_metadata",
+                "num_samples": 115,
+                "file_path": "datasets_v1/MobileAgent-v3/task_metadata.json",
+                "has_reference_answer": false,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. 无法直接使用，给的是 task 填充的模板\n2. 不同任务根据 difficulty 进行难度划分，optimal_steps 说明需要几步操作完成",
+                "originality": [],
+                "column_mapping": {
+                    "id": "task_name",
+                    "question": "task_template",
+                    "answer": "",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-08-30",
+        "organization": "X-PLUG"
+    },
+    {
+        "dataset_name": "OpenDeepResearch",
+        "dataset_version": "1.0",
+        "description": "OpenDeepResearch 框架基于 Langchain 实现。当前框架中提供的问题为报告类问题，问题对应的答案，通过 evaluate 代码进行5个维度不同权重评估，每个维度中又定义了一些对应的评估标准，这些维度的权重和维度内部的评估标准使用大模型生成。",
+        "paper_url": "",
+        "dataset_url": "https://github.com/Ayanami0730/deep_research_bench/blob/main/data/prompt_data/query.jsonl",
+        "github_url": "https://github.com/OpenPipe/open_deep_research_training",
+        "languages": [
+            "en",
+            "zh"
+        ],
+        "task_type": "multi-hop",
+        "tool_preference": [
+            "web_search",
+            "browser",
+            "python",
+            "file_parse"
+        ],
+        "num_total_samples": 100,
+        "dataset_splits": [
+            {
+                "split_name": "prompt_data",
+                "display_name": "query",
+                "num_samples": 100,
+                "file_path": "datasets_v1/OpenDeepResearch/data/prompt_data/query.jsonl",
+                "has_reference_answer": false,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. 因为是报告类型的答案，没有标准的答案，需要通过分数来评价答案的好坏\n2. datasets_v1/OpenDeepResearch/data/criteria_data/criteria.jsonl 对应给出了每条数据的5个不同的评估维度（可读性、创新性等），并给每个不同维度不同的权重分数；每个维度内部也有不同的评价标准，相应的，这些评价标准也有不同的权重\n3. 评估维度的权重和评估维度内部的评价标准通过大模型生成，可以参考： https://github.com/OpenPipe/open_deep_research_training/blob/main/deep_research_bench/prompt/ 下的  criteria 和 score，criteria 是生成权重分数和 评估维度内部的评价标准，score 是基于已有的评价，对于生成的报告进行打分",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "id",
+                    "question": "prompt",
+                    "answer": "",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-07-13",
+        "organization": "OpenPipe"
+    },
+    {
+        "dataset_name": "SimpleQA",
+        "dataset_version": "1.0",
+        "description": "SimpleQA 是一个用于评估语言模型提供简短、事实性答案能力的数据集。它包含 4326 个事实性问题，涵盖多个类别，如科学与技术、地理、体育、艺术、政治、电视剧、音乐、历史、电子游戏等。这些问题特意选择较为罕见的知识，以增加模型产生幻觉的可能性。",
+        "paper_url": "https://openai.com/index/introducing-simpleqa/",
+        "dataset_url": "https://huggingface.co/datasets/basicv8vc/SimpleQA",
+        "github_url": "",
+        "languages": [
+            "en"
+        ],
+        "task_type": "single-hop",
+        "tool_preference": [
+            "web_search"
+        ],
+        "num_total_samples": 4326,
+        "dataset_splits": [
+            {
+                "split_name": "test",
+                "display_name": "simple_qa_test_set",
+                "num_samples": 4326,
+                "file_path": "datasets_v1/SimpleQA/simple_qa_test_set.csv",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. 问题和答案简短\n2. 在 metadata 的 urls 中给出这个问题的参考文献\n3. 这种任务不需要复杂多步规划，能够比较快速地得到答案",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "",
+                    "question": "problem",
+                    "answer": "answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": "metadata->urls->for"
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2024-10-30",
+        "organization": "OpenAI"
+    },
+    {
+        "dataset_name": " Chinese-SimpleQA",
+        "dataset_version": "1.0",
+        "description": "中文版本的 SimpleQA 数据集，称为 Chinese SimpleQA，由阿里巴巴集团旗下的淘宝和天猫团队创建。它是首个全面评估语言模型回答简短问题事实性能力的中文基准测试。该数据集包含 3000 个高质量问题，覆盖 6 个主要主题，每个主题下有 99 个细分主题。",
+        "paper_url": "https://arxiv.org/abs/2411.07140",
+        "dataset_url": "https://huggingface.co/datasets/OpenStellarTeam/Chinese-SimpleQA",
+        "github_url": "https://openstellarteam.github.io/ChineseSimpleQA/",
+        "languages": [
+            "zh"
+        ],
+        "task_type": "single-hop",
+        "tool_preference": [
+            "web_search"
+        ],
+        "num_total_samples": 3000,
+        "dataset_splits": [
+            {
+                "split_name": "test",
+                "display_name": "chinese_simpleqa",
+                "num_samples": 3000,
+                "file_path": "datasets_v1/SimpleQA-ZH/chinese_simpleqa.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. 和 simpleQA 一样，都是简短的问题和答案\n2. 数据来源：中文维基、百度百科、搜狐新闻、CCTV新闻、新浪等，在 urls 字段给出参考的网页\n3. 多数问题通过一步搜索能够得到结果",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "id",
+                    "question": "question",
+                    "answer": "answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2024-12-16",
+        "organization": "OpenStellarTeam"
+    },
+    {
+        "dataset_name": "xbench-DeepSearch",
+        "dataset_version": "1.0",
+        "description": "xbench  是一个持续更新、无污染的真实世界特定领域AI评估框架，旨在通过两个互补的赛道测量AI系统的智能前沿和实际应用效用。它包括AGI跟踪赛道，用于衡量模型的核心能力，如推理、工具使用和记忆；以及与领域专家共同设计的职业对齐赛道，基于工作流程、环境和商业KPIs。DeepSearch 是两个AGI Tracking基准的源数据之一，另一个是 ScienceQA。",
+        "paper_url": "https://xbench.org/files/xbench_profession_v2.4.pdf",
+        "dataset_url": "https://huggingface.co/datasets/xbench/DeepSearch",
+        "github_url": "https://github.com/xbench-ai/xbench-evals",
+        "languages": [
+            "zh"
+        ],
+        "task_type": "challenge",
+        "tool_preference": [
+            "web_search",
+            "browser",
+            "video",
+            "python",
+            "image",
+            "audio",
+            "file_parse"
+        ],
+        "num_total_samples": 100,
+        "dataset_splits": [
+            {
+                "split_name": "DeepSearch",
+                "display_name": "DeepSearch",
+                "num_samples": 100,
+                "file_path": "datasets_v1/xBench/DeepResearch/DeepSearch.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. 问题，答案和答案的 steps 都是加密的，已经参考 github 代码进行数据的 decode\n2. 提供了很好的 reference_steps，例如——1. 确定乐夏有三季；2. 确定每季 top5 乐队名字；3. 搜索每支乐队成员，找出其中女性成员--第一季：赵梦（新裤子）、石璐（刺猬）；第二季：刘敏（重塑雕像的权利）；第三季：冯海宁（Nova Heart）、其其格玛（安达组合）、赛汗尼亚（安达组合），很好的参考",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "id",
+                    "question": "prompt",
+                    "answer": "answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": "reference_steps"
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-05-28",
+        "organization": "xBench"
+    },
+    {
+        "dataset_name": "xbench-ScienceQA",
+        "dataset_version": "1.0",
+        "description": "xbench 给的 ScienceQA，相比于 DeepSearch，更多是考察冷门的知识和复杂计算。",
+        "paper_url": "https://xbench.org/files/xbench_profession_v2.4.pdf",
+        "dataset_url": "https://huggingface.co/datasets/xbench/ScienceQA",
+        "github_url": "https://github.com/xbench-ai/xbench-evals",
+        "languages": [
+            "zh"
+        ],
+        "task_type": "single-hop",
+        "tool_preference": [
+            "web_search",
+            "python"
+        ],
+        "num_total_samples": 100,
+        "dataset_splits": [
+            {
+                "split_name": "ScienceQA",
+                "display_name": "ScienceQA",
+                "num_samples": 100,
+                "file_path": "datasets_v1/xBench/ScienceQA/ScienceQA.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. 问答题和选择题，问题倾向为物化生，机械，材料，金融这种\n2. 和 DeepSearch 数据集相同，需要进行数据集的解码，当前已经完成 decode 操作",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "id",
+                    "question": "prompt",
+                    "answer": "answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-05-28",
+        "organization": "xBench"
+    },
+    {
+        "dataset_name": "SailorFog-QA",
+        "dataset_version": "1.0",
+        "description": "WebSailor 是阿里巴巴通义实验室于2025年开源的一个先进的网络智能体，它在复杂的检索和推理任务中表现出色。WebSailor 的核心创新之一是其专属的训练数据集 SailorFog-QA，该数据集旨在锻炼模型在高不确定性环境下的检索和推理能力。\n\nSailorFog-QA 数据集通过图结构采样和信息模糊化生成，模拟复杂的现实世界信息检索场景。例如，数据集中的问题可能包含模糊日期（如“20世纪初”）或部分遮蔽的实体名称（如“姓氏首字母为‘F’的人”），增加了任务的难度。WebSailor 将信息检索任务分为三个级别，其中最高难度的 Level-3 任务涉及复杂的关系网络和难以预定义推理路径的问题。通过随机游走建图技术，SailorFog-QA 构造了复杂的知识结构，生成了超过10万条高不确定性的问答对用于 WebSailor 的数据训练。\n\nPs：未开源！！只提供了几条 demo，https://github.com/Alibaba-NLP/WebAgent/issues/35 官方也是这样子回复的。",
+        "paper_url": "http://arxiv.org/abs/2507.02592",
+        "dataset_url": "https://github.com/Alibaba-NLP/WebAgent/blob/main/WebSailor/dataset/sailorfog-QA.jsonl",
+        "github_url": "https://github.com/Alibaba-NLP/WebAgent/blob/main/WebSailor",
+        "languages": [
+            "en",
+            "zh"
+        ],
+        "task_type": "challenge",
+        "tool_preference": [
+            "web_search",
+            "browser"
+        ],
+        "num_total_samples": 20,
+        "dataset_splits": [
+            {
+                "split_name": "sailorfog-QA",
+                "display_name": "sailorfog-QA",
+                "num_samples": 20,
+                "file_path": "datasets_v1/WebAgent-series/WebSailor/sailorfog-QA.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. 这些问题的描述形式都是模糊匹配的方式\n2. 可能需要多步的模糊匹配，然后进行交叉验证正确性",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "",
+                    "question": "question",
+                    "answer": "answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-07-07",
+        "organization": "Alibaba-NLP"
+    },
+    {
+        "dataset_name": "CrawlQA",
+        "dataset_version": "1.0",
+        "description": "WebDancer是阿里巴巴通义实验室开发的Web智能体，其数据集是为了解决现有数据集规模小、场景单一以及复杂推理能力不足的问题。WebDancer的数据集构建采用了两种创新方法：\n\n1. **CrawlQA**：通过模拟人类的网页浏览行为进行网页爬取，从知识丰富的网站（如arxiv、github、wiki等）开始，递归导航到子页面并收集信息。然后利用GPT-4o等大型语言模型根据收集的信息生成合成的问答对。这些问答对涵盖多种类型的问题，如计数、多跳和交集问题，有效激发模型的多步推理能力。\n\n2. **E2HQA（Easy-to-Hard Question Answering）**：采用从简单到复杂的问答对合成方法。从简单问答对开始，逐步增加问题的复杂性，将简单问题转化为复杂的多步问题。具体做法是选择简单问题中的一个实体，利用搜索引擎获取相关信息，然后根据这些信息重新构造问题。\n\nWebDancer的数据集构建旨在提供更高质量、更复杂且更具有挑战性的训练数据，以提升智能体在复杂信息检索任务中的表现。\n\nPs：当前数据集未开源，只有 CrawlQA 提供了 200 条",
+        "paper_url": "https://arxiv.org/pdf/2505.22648",
+        "dataset_url": "https://github.com/Alibaba-NLP/WebAgent/blob/main/WebDancer/datasets/sample_qa.jsonl",
+        "github_url": "https://github.com/Alibaba-NLP/WebAgent/blob/main/WebDancer",
+        "languages": [
+            "en"
+        ],
+        "task_type": "multi-hop",
+        "tool_preference": [
+            "web_search",
+            "fetch_web_page"
+        ],
+        "num_total_samples": 200,
+        "dataset_splits": [
+            {
+                "split_name": "sample_qa",
+                "display_name": "sample_qa",
+                "num_samples": 200,
+                "file_path": "datasets_v1/WebAgent-series/WebDancer/CrawlQA/sample_qa.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. 判断题和简答题，答案比较简短\n2. answer 和 question 中可能会出现中文（例如 163 行 {\"question\": \"What is the title of the article featuring 华中师范大学's collaboration with 华为 in the context of educational innovation?\", \"answer\": \"华为昇腾创新实践课\", \"tag\": \"crawlqa\"}\n）",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "",
+                    "question": "question",
+                    "answer": "answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-06-23",
+        "organization": "Alibaba-NLP"
+    },
+    {
+        "dataset_name": "WebShaper",
+        "dataset_version": "1.0",
+        "description": "WebShaper 是阿里巴巴通义实验室开源的一种形式化驱动的信息搜索（IS）数据合成框架，旨在解决当前大型语言模型（LLM）驱动的智能体在信息搜索能力发展中面临的高质量训练数据稀缺性问题。\n\n主要的构建思路：\n1.  先构建形式化的结构 q(T)1 比如：实体A有变量1和变量2两个属性，这个实体B是？\n2. 然后在 q(T)1 的基础上，进行拓展：（1）随机添加变量；（2）随机拓展实体（实体A 和 实体B 存在一条关系）；（3）根据树结构遍历下去，把作为变量的叶子节点替换成实体，形成新的问题\n3. 基于这种范式，然后把变量和实体填充进去，最后形成一个自然语言的问题",
+        "paper_url": "https://arxiv.org/pdf/2507.15061",
+        "dataset_url": "https://huggingface.co/datasets/Alibaba-NLP/WebShaper",
+        "github_url": "https://github.com/Alibaba-NLP/WebAgent/tree/main/WebShaper",
+        "languages": [
+            "en"
+        ],
+        "task_type": "multi-hop",
+        "tool_preference": [
+            "web_search",
+            "fetch_web_page"
+        ],
+        "num_total_samples": 500,
+        "dataset_splits": [
+            {
+                "split_name": "main",
+                "display_name": "main-00000-of-00001",
+                "num_samples": 500,
+                "file_path": "datasets_v1/WebAgent-series/WebShaper/data/main-00000-of-00001.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. 在数据的 formalization 列给出数据构建的范式\n2. 范式的例子：[[\"V@M\", \"is opening match of\", \"V@X\"], [\"V@X\", \"has record for most consecutive DDR-Oberliga titles\", \"C@10\"], [\"V@X\", \"achieved between years\", \"C@1978 and 1988\"], [\"V@M\", \"took place at\", \"V@Y\"], [\"V@M\", \"took place on\", \"C@16 August 1986\"], [\"V@Y\", \"hosted opening match of\", \"V@X\"], [\"V@Y\", \"is located in\", \"C@Berlin\"], [\"V@Y\", \"has type\", \"C@sports complex with multiple facilities\"], [\"V@M\", \"had number of spectators\", \"?\"]]\n3. urls 给出这个问题解决，得到答案的参考网页",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "id",
+                    "question": "question",
+                    "answer": "answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-07-21",
+        "organization": "Alibaba-NLP"
+    },
+    {
+        "dataset_name": "WebWalkerQA",
+        "dataset_version": "1.0",
+        "description": "WebWalker 是阿里巴巴自然语言处理团队开发的用于评估大型语言模型（LLMs）在网页浏览任务中性能的工具。它通过模拟网页导航任务，帮助模型更好地处理长上下文信息，提升其在复杂网页浏览任务中的表现。\n\nWebWalker 以某个 URL 作为开始网页，然后通过浏览器模拟的方式，观察网页，进行点击等操作，深入探索单个页面或相关页面链，寻找和回答问题所需的信息。",
+        "paper_url": "https://arxiv.org/pdf/2501.07572",
+        "dataset_url": "https://huggingface.co/datasets/callanwu/WebWalkerQA",
+        "github_url": "https://github.com/Alibaba-NLP/WebAgent/tree/main/WebWalker",
+        "languages": [
+            "en",
+            "zh"
+        ],
+        "task_type": "multi-hop",
+        "tool_preference": [
+            "web_search",
+            "browser"
+        ],
+        "num_total_samples": 14259,
+        "dataset_splits": [
+            {
+                "split_name": "main",
+                "display_name": "main-00000-of-00001",
+                "num_samples": 680,
+                "file_path": "datasets_v1/WebAgent-series/WebWalker/data/main-00000-of-00001.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. root_url 给出了初始点击网页\n2. info 中给出这个问题的 domain，以及 source_website（过程中点击了哪些网页），golden_path 是理想的点击路径（List，例如 [\"root->招标公告->首页->福州统一2025-2026年生产劳务外包服务项目\", \"root->招标公告->首页->杭州统一2025-2027年生产劳务外包服务项目\"]），type 表示是 multi_source 和 single_source（2+条点击路径就是multi_source，反之就是 single），difficulty_level 表示任务的难度",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "",
+                    "question": "question",
+                    "answer": "answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            },
+            {
+                "split_name": "silver",
+                "display_name": "answer",
+                "num_samples": 13579,
+                "file_path": "datasets_v1/WebAgent-series/WebWalker/data/silver-00000-of-00001.jsonl",
+                "has_reference_answer": true,
+                "has_reasoning_process": false,
+                "is_multimodal": false,
+                "description": "1. 和 main相同，就是该部分的数据的答案没有 not yet carefully human-verified\n2. 也给出了对应 golden_path，difficulty_level 等字段，存储字段和 main 数据相同",
+                "originality": [
+                    "original"
+                ],
+                "column_mapping": {
+                    "id": "",
+                    "question": "question",
+                    "answer": "answer",
+                    "reasoning_process": "",
+                    "multimodal_file_path": "",
+                    "reference": ""
+                },
+                "status": {
+                    "downloaded": true,
+                    "run_progess": {
+                        "processed_samples": 0,
+                        "correct_samples": 0,
+                        "correct_samples_path": null
+                    }
+                }
+            }
+        ],
+        "update_time": "2025-01-13",
+        "organization": "Alibaba-NLP"
+    }
+]
