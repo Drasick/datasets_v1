@@ -749,7 +749,7 @@ def password_dialog():
         else:
             st.session_state["seen_password"] = ""
             st.session_state["password_verified"] = False
-            st.error("密码错误，请重试。
+            st.error("密码错误，请重试。")
 
 
 
