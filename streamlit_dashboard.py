@@ -739,8 +739,9 @@ def password_dialog():
     st.write("请输入访问密码：")
     password = st.text_input("密码", type="password", key="password_input")
     if st.button("验证"):
-        # 这里假设正确密码为 "wenge2025"，可根据实际需求修改
-        if password == "wenge2025":
+        # 使用 Streamlit secrets 进行密码校验
+        correct_password = st.secrets.get("dashboard_password")
+        if password == correct_password:
             st.session_state["seen_password"] = password
             st.session_state["password_verified"] = True
             st.success("验证成功，欢迎访问！")
@@ -748,7 +749,7 @@ def password_dialog():
         else:
             st.session_state["seen_password"] = ""
             st.session_state["password_verified"] = False
-            st.error("密码错误，请重试。")
+            st.error("密码错误，请重试。
 
 
 
