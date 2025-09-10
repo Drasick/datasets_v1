@@ -308,7 +308,6 @@ def load_dfs():
 def page2() -> None:
     
     df, df2 = load_dfs()
-    st.set_page_config(page_title="HLE 主题分类分析", layout="wide", page_icon="📊")
     st.title("HLE 主题分类数据分析")
 
     with st.sidebar:
