@@ -151,7 +151,7 @@ def render_category_details(df):
 
 def render_category_excels(df_filtered):
     # 3. 展示数据表格
-    st.subheader("3️⃣ 详细数据")
+    st.subheader("详细数据")
     st.dataframe(
         df_filtered[["category", "question", "level1", "level2"]],
         use_container_width=True
@@ -293,7 +293,7 @@ def render_multimodal_pie_and_table(df2):
     df_filtered = df_level1
 
     # 展示数据表格
-    st.subheader("6️⃣ 详细多模态数据")
+    st.subheader("详细多模态数据")
     st.dataframe(
         df_filtered[["category", "question", "level1", "level2"]],
         use_container_width=True
