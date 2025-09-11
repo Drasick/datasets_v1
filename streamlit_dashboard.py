@@ -49,7 +49,7 @@ def main() -> None:
                 page_list,
                 menu_icon="bi bi-columns-gap",
                 icons=["bi bi-book", "bi bi-person-workspace"],
-                default_index=1,  # 默认选中第二个（HLE 数据分类与统计）
+                default_index=0,  # 默认选中第一个
                 styles={
                     "nav-link": {"--hover-color": "#E9EFFF"},
                     "nav-link-selected": {"background-color": "#6372FF"},
